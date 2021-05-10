@@ -17,7 +17,7 @@ namespace DynamoNet
             {
                 AmazonDynamoDBConfig clientConfig = new AmazonDynamoDBConfig();
                 clientConfig.ServiceURL = "http://dynamodb:8000";
-                AmazonDynamoDBClient client = new AmazonDynamoDBClient("AKIA5A4IE3H45OEUD3HH", "FaxdILrQUM2czZ1DtfPinUHZPJDabJmHA+7W7DcJ", clientConfig);
+                AmazonDynamoDBClient client = new AmazonDynamoDBClient("<your key>", "<your secret>", clientConfig);
                 try
                 {
                     DynamoDBContext context = new DynamoDBContext(client);
