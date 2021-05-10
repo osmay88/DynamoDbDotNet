@@ -85,9 +85,7 @@ namespace DynamoNet
 
             private static async Task CreateTables()
             {
-                AmazonDynamoDBConfig clientConfig = new AmazonDynamoDBConfig();
-                clientConfig.ServiceURL = "http://dynamodb:8000";
-                AmazonDynamoDBClient client = new AmazonDynamoDBClient("AKIA5A4IE3H45OEUD3HH", "FaxdILrQUM2czZ1DtfPinUHZPJDabJmHA+7W7DcJ", clientConfig);
+                AmazonDynamoDBClient client = GetClient();
                 string tableName = "ProductCatalog";
 
                 var request = new CreateTableRequest
