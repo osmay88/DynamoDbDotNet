@@ -44,3 +44,4 @@ msbuild.wrn
 *.Development.json
 appsettings.Development.json
 *.override.yml
+docker-compose.override.yml
