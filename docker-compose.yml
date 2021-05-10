@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  dynamonet:
+    image: ${DOCKER_REGISTRY-}dynamonet
+    build:
+      context: .
+      dockerfile: DynamoNet/Dockerfile
+     
+    depends_on:
+      - dynamodb
+
+    
+  dynamodb:
+    image: amazon/dynamodb-local
+    hostname: dynamodb-local
+    container_name: dynamodb-local
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"

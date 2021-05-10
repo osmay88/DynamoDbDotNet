@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DynamoNet": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
