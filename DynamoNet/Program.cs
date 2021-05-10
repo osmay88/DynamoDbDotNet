@@ -12,12 +12,19 @@ namespace DynamoNet
     {
         class HighLevelItemCRUD
         {
-
-            static async Task Main(string[] args)
+            private static AmazonDynamoDBClient GetClient()
             {
                 AmazonDynamoDBConfig clientConfig = new AmazonDynamoDBConfig();
                 clientConfig.ServiceURL = "http://dynamodb:8000";
-                AmazonDynamoDBClient client = new AmazonDynamoDBClient("<your key>", "<your secret>", clientConfig);
+                string key = Environment.GetEnvironmentVariable("AWS_KEY");
+                string secret = Environment.GetEnvironmentVariable("AWS_SECRET");
+                AmazonDynamoDBClient client = new AmazonDynamoDBClient(key, secret, clientConfig);
+                return client;
+            }
+
+            static async Task Main(string[] args)
+            {
+                AmazonDynamoDBClient client = GetClient();
                 try
                 {
                     DynamoDBContext context = new DynamoDBContext(client);
